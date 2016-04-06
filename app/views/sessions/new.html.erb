@@ -8,7 +8,7 @@
       <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password' %>
       <div class="buttons">
         <%= f.submit "Sign in", class: "btn btn-lg btn-primary" %>
-        <%= link_to "Sign up", register_user_path, class: "btn btn-lg btn-default" %>
+        <%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-default" %>
       </div>
 
     <% end %>

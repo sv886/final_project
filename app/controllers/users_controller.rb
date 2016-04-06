@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(gym_name: params[:gym_name])
   end
 
   def new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new params.require(:user).permit(:gym_name, :address, :email, :password, :password_confirmation)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path
+      redirect_to user_path(gym_name: @user.gym_name)
     else
       flash[:error] = "Unable to register user. Please check input fields and try again."
       render :new

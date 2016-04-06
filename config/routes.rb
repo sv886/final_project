@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#delete', as: :logout
 
-  get 'users/new' => 'users#new', as: :register_user
-  post 'users/new' => 'users#create'
-  get 'user' => 'users#show', as: :user
+  get 'users/new' => 'users#new', as: :new_user
+  post 'users' => 'users#create'
+  get 'user/:gym_name' => 'users#show', as: :user
   get 'user/:id/edit' => 'users#edit', as: :edit_user
-  patch 'user/:id' => 'users#update'
-  delete 'user/:id' => 'users#delete'
+  patch 'user/:gym_name' => 'users#update'
+  delete 'user/:gym_name' => 'users#delete'
 
   resources :groups
 

@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="registration_form">
-    <%= simple_form_for @user, :url => register_user_path, :html => { :class => 'form-vertical' } do |f| %>
+    <%= simple_form_for @user do |f| %>
       <%= f.input :gym_name, :required =>false, :label => 'Box Name', :placeholder => 'Box Name'  %>
       <%= f.input :address, :required =>false, :label => '', :placeholder => 'Box Address'  %>
       <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
