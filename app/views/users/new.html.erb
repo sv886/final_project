@@ -1,2 +1,12 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container">
+
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :gym_name %>
+    <%= f.input :address %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.submit "Register", class: "btn btn-lg btn-primary" %>
+  <% end %>
+
+</div>
