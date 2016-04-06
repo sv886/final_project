@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     email = params[:email]
     password = params[:password]
     # validate password
-    user = User.find_by email: email
-    if user && user.authenticate(password)
+    user = User.find_by_email(params[:sessions][:email])
+    if user && user.authenticate(params[:sessions][:password])
       session[:user_id] = user.id
       redirect_to user_path
     else
