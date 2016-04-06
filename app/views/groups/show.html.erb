@@ -1,2 +1,13 @@
 <h1>Groups#show</h1>
 <p>Find me in app/views/groups/show.html.erb</p>
+
+<div class="container">
+  <%= @current_user.gym_name %>
+  <br>
+    <div class="group">
+        <h4><%= @group.class_time%></h4>
+        <h4><%= @group.coach_first_name%> <%= @group.coach_last_name%></h4>
+      <hr>
+    </div>
+  <%= link_to "Home", user_path(gym_name: @user.gym_name), class: "btn btn-default" %>
+</div>

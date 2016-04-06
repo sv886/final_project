@@ -1,12 +1,21 @@
 <div class="container">
-  <%= @current_user.gym_name %>
-  <br>
-  <%= @current_user.address %>
-  <br>
-  is this ur pw???:
-  <%= @current_user.password_digest %>
-  <br>
-  <%= link_to "Logout", logout_path, class: "btn btn-danger" %>
-  <%= link_to "Home", root_path, class: "btn btn-default" %>
+
+  <div class="gym_name">
+    <%= @current_user.gym_name %>
+  </div>
+
+  <div class="classes">
+    <% @user.groups.each do |group| %>
+      <div class="tweet">
+          <h4><%= link_to group.class_time, group_path(id: group.id) %> <%= group.coach_first_name %> <%= group.coach_last_name %></h4>
+        <hr>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="buttons">
+    <%= link_to "Add Class", new_group_path, class: "btn btn-success" %>
+    <%= link_to "Logout", logout_path, class: "btn btn-danger"  %>
+  </div>
 
 </div>

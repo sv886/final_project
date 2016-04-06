@@ -1,6 +1,6 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
 
-<%= link_to @current_user.gym_name, user_path, class: "btn btn-success" %>
+<%= link_to @current_user.gym_name, user_path(gym_name: @current_user.gym_name), class: "btn btn-success" %>
 
 <%= link_to "Logout", logout_path, class: "btn btn-danger"  %>
