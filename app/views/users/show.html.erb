@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <%= @current_user.gym_name %>
+  <br>
+  <%= @current_user.address %>
+  <br>
+  is this ur pw???:
+  <%= @current_user.password_digest %>
+  <br>
+  <%= link_to "Logout", logout_path, class: "btn btn-danger" %>
+  <%= link_to "Home", root_path, class: "btn btn-default" %>
+
+</div>

@@ -5,6 +5,12 @@ en:
     required:
       text: 'required'
       mark: '*'
+    placeholders:
+    user:
+        gym_name: 'Gym Name ex: "Crossfit Soutbell"'
+        address: ' Gym Address'
+        email: 'user@domain.com'
+        password: 'Password'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'

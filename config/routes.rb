@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#delete', as: :logout
 
+  get 'users/new' => 'users#new', as: :register_user
+  post 'users/new' => 'users#create'
   get 'user' => 'users#show', as: :user
-  get 'user/new' => 'users#new', as: :register_user
-  post 'user' => 'users#create'
   get 'user/:id/edit' => 'users#edit', as: :edit_user
   patch 'user/:id' => 'users#update'
   delete 'user/:id' => 'users#delete'

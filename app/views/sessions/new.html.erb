@@ -1,23 +1,17 @@
 
 <div class="container">
 
-  <%= form_tag do %>
+  <div class="login_form">
+    <%= simple_form_for :sessions, :url => login_path, :html => { :class => 'form-vertical' } do |f| %>
 
-    <div class="form-group">
-      <%= label_tag :email %>
-      <%= email_field_tag :email, "", class: "form-control" %>
-    </div>
+      <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
+      <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password' %>
+      <div class="buttons">
+        <%= f.submit "Sign in", class: "btn btn-lg btn-primary" %>
+        <%= link_to "Sign up", register_user_path, class: "btn btn-lg btn-default" %>
+      </div>
 
-    <div class="form-group">
-      <%= label_tag :password %>
-      <%= password_field_tag :password, "", class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-       <%= submit_tag "Sign in", class: "btn btn-lg btn-success" %>
-       <%= link_to "Sign up", register_user_path, class: "btn btn-lg btn-default" %>
-    </div>
-
-  <% end %>
+    <% end %>
+  </div>
 
 </div>
