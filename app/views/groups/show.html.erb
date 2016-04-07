@@ -8,6 +8,7 @@
       <hr>
       <div class="buttons">
         <%= link_to "Home", user_path(gym_name: @user.gym_name), class: "btn btn-default" %>
+        <%= link_to "Add Member", new_member_path, class: "btn btn-success" %>
         <%= link_to "Edit Class", edit_group_path(id: @group.id), class: "btn btn-warning" %>
       </div>
     </div>
