@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :groups
 
-  validates :gym_name, :email, :password, :address, presence: true
+  validates :gym_name, :email, :address, presence: true
+
+
 
 end

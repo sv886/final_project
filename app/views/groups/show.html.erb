@@ -4,7 +4,7 @@
     <div class="group">
       <h1><%= @current_user.gym_name %></h1>
       <hr>
-      <h2><%= @group.class_time%>- Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h2>
+      <h2><%= @group.class_time %>- Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h2>
       <hr>
       <div class="buttons">
         <%= link_to "Home", user_path(gym_name: @user.gym_name), class: "btn btn-default" %>

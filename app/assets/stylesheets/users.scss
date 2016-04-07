@@ -25,5 +25,15 @@
         flex-direction: row;
         justify-content: space-around;
       }
-  }
+    }
+    .user_form {
+      width: 40%;
+      border: 2px solid #CCCCCC;
+      border-radius: 10px;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      margin-top: 20px;
+      padding: 20px 20px;
+    }
 }
