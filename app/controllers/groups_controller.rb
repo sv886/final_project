@@ -27,14 +27,27 @@ class GroupsController < ApplicationController
 
   def show
     @user = @current_user
-
     @group = Group.find_by id: params[:id]
   end
 
   def edit
+    @user = @current_user
+    @group = Group.find_by id: params[:id]
   end
 
   def update
+    @user = @current_user
+    @group = Group.find_by id: params[:id]
+    @group.class_time = params[:group][:class_time]
+    @group.coach_first_name = params[:group][:coach_first_name]
+    @group.coach_last_name = params[:group][:coach_last_name]
+    if @group.user.id == session[:user_id]
+      if @group.save
+        redirect_to user_path(gym_name: @user.gym_name)
+      else
+        render :edit
+      end
+    end
   end
 
   def delete
