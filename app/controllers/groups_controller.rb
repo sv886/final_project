@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
     @group = Group.new params.require(:group).permit(:class_time, :coach_first_name, :coach_last_name)
     @group.user = @current_user
     if @group.save
-      redirect_to user_path(gym_name: @user.gym_name)
+      redirect_to user_path(id: @user.id)
     else
       flash[:error] = "Unable to add class. Please check input fields and try again."
       render :new
@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
     @group.coach_last_name = params[:group][:coach_last_name]
     if @group.user.id == session[:user_id]
       if @group.save
-        redirect_to user_path(gym_name: @user.gym_name)
+        redirect_to user_path(id: @user.id)
       else
         render :edit
       end

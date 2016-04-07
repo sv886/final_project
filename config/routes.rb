@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   get 'users/new' => 'users#new', as: :new_user
   post 'users' => 'users#create'
-  get 'user/:gym_name' => 'users#show', as: :user
-  get 'user/:id/edit' => 'users#edit', as: :edit_user
-  patch 'user/:gym_name' => 'users#update'
-  delete 'user/:gym_name' => 'users#delete'
+  get 'users/:id' => 'users#show', as: :user
+  get 'users/:id/edit' => 'users#edit', as: :edit_user
+  patch 'users/:id' => 'users#update'
+  delete 'users/:id' => 'users#delete'
 
   resources :groups
 
