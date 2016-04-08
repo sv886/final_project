@@ -5,11 +5,21 @@
       <h1><%= @current_user.gym_name %></h1>
       <hr>
       <h2><%= @group.class_time %>- Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h2>
+      <h1>Group ID: <%= @group.id %></h1>
       <hr>
+
+      <div class="classes">
+        <% @group.members.each do |member| %>
+          <div class="tweet">
+            <h4><%= member.member_first_name %> <%= member.member_last_name %>, Group ID: <%= member.group_id %></h4>
+            <hr>
+          </div>
+        <% end %>
+      </div>
 
       <div class="buttons">
         <%= link_to "Home", user_path(id: @user.id), class: "btn btn-default" %>
-        <%= link_to "Add Member", new_group_member_path(@group), class: "btn btn-success" %>
+        <%= link_to "Add Member", new_member_path, class: "btn btn-success" %>
         <%= link_to "Edit Class", edit_group_path(id: @group.id), class: "btn btn-warning" %>
       </div>
     </div>

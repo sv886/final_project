@@ -17,7 +17,7 @@ class MembersController < ApplicationController
     @group = Group.find_by id: params[:id]
     @member = Member.new member_params
     if @member.save
-      redirect_to group_path(id: @group.id)
+      redirect_to root_path
     else
       flash[:error] = "Unable to add member. Please check input fields and try again."
       render :new
@@ -34,6 +34,6 @@ class MembersController < ApplicationController
   end
 
   def member_params
-     params.require(:member).permit(:member_first_name, :member_last_name, :age, :gender)
+     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :gender)
   end
 end
