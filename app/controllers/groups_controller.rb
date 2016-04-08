@@ -9,13 +9,18 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def show
+    @user = @current_user
+    @group = Group.find_by id: params[:id]
+  end
+
   def new
     @group = Group.new
   end
 
   def create
     @user = @current_user
-    @group = Group.new params.require(:group).permit(:class_time, :coach_first_name, :coach_last_name)
+    @group = Group.new group_params
     @group.user = @current_user
     if @group.save
       redirect_to user_path(id: @user.id)
@@ -25,24 +30,15 @@ class GroupsController < ApplicationController
     end
   end
 
-  def show
-    @user = @current_user
-    @group = Group.find_by id: params[:id]
-  end
-
   def edit
-    @user = @current_user
     @group = Group.find_by id: params[:id]
   end
 
   def update
     @user = @current_user
     @group = Group.find_by id: params[:id]
-    @group.class_time = params[:group][:class_time]
-    @group.coach_first_name = params[:group][:coach_first_name]
-    @group.coach_last_name = params[:group][:coach_last_name]
     if @group.user.id == session[:user_id]
-      if @group.save
+      if @group.update group_params
         redirect_to user_path(id: @user.id)
       else
         render :edit
@@ -51,5 +47,9 @@ class GroupsController < ApplicationController
   end
 
   def delete
+  end
+
+  def group_params
+     params.require(:group).permit(:class_time, :coach_first_name, :coach_last_name)
   end
 end

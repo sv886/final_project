@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update'
   delete 'users/:id' => 'users#delete'
 
-  resources :groups
-
-  resources :members
+  resources :groups do
+    resources :members
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

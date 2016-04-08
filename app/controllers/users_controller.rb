@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user.email = params[:user][:email]
     if @user.id == session[:user_id]
       if @user.save
-        redirect_to root_path
+        redirect_to user_path(id: @user.id)
       else
         render :edit
       end
