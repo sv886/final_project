@@ -4,6 +4,7 @@
     <div class="gym_name">
       <h1><%= link_to @current_user.gym_name, edit_user_path %></h1>
     </div>
+    <hr>
     <div class="classes">
       <% @user.groups.each do |group| %>
         <div class="tweet">
