@@ -37,7 +37,7 @@ class GroupsController < ApplicationController
   def update
     @user = @current_user
     @group = Group.find_by id: params[:id]
-    if @group.user.id == session[:user_id]
+    if @user.id == session[:user_id]
       if @group.update group_params
         redirect_to user_path(id: @user.id)
       else
