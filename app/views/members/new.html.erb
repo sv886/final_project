@@ -3,7 +3,7 @@
 
   <div class="member_form">
     <%= simple_form_for @member do |f| %>
-      <%= f.association :group, :placeholder => 'Coach', label_method: :coach_first_name, value_method: :id, include_blank: true %>
+      <%= f.association :group, label_method: :coach_full_name, value_method: :id, include_blank: true %>
       <%= f.input :member_first_name, :required =>false, :label => 'First Name', :placeholder => 'Member First Name'  %>
       <%= f.input :member_last_name, :required =>false, :label => 'Last Name', :placeholder => 'Member Last Name'  %>
       <%= f.input :age, :required =>false, :label => '', :placeholder => 'Age'  %>
