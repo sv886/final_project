@@ -51,10 +51,10 @@ class MembersController < ApplicationController
   end
 
   def member_params
-     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :gender, :notes)
+     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :height_inches, :gender, :notes)
   end
 
   def update_member_params
-     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :gender, :status, :notes)
+     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :height_inches, :gender, :status, :notes)
   end
 end

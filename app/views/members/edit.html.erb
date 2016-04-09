@@ -6,8 +6,9 @@
         <%= f.input :member_first_name, :required =>false, :label => 'First Name', :placeholder => 'Member First Name'  %>
         <%= f.input :member_last_name, :required =>false, :label => 'Last Name', :placeholder => 'Member Last Name'  %>
         <%= f.input :age, :required =>false, :label => '', :placeholder => 'Age'  %>
+        <%= f.input :height_inches, :required =>false, :label => 'Height in Inches', :placeholder => 'If 5\'6" input 66'  %>
         <%= f.input :gender, collection: ['Male','Female'], :required =>false %>
-        <%= f.input :status, collection: ['Active','Inactive'], :required =>false %>
+        <%= f.input :status, collection: ['Active','Inactive'], :required =>false, :label => 'Membership Status' %>
         <%= f.input :notes, as: :text, :required =>false, :label => 'Notes', :placeholder => 'Health concerns (injury history etc.)'  %>
         <%= f.submit "Update Member", class: "btn btn-lg btn-primary" %>
       <% end %>
