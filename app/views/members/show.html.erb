@@ -17,7 +17,7 @@
 
       <div class="buttons">
         <%= link_to "Home", user_path(id: @user.id), class: "btn btn-default" %>
-        <%= link_to "Add Member", new_member_path, class: "btn btn-success" %>
+        <%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %>
         <%= link_to "Edit Member", edit_member_path(id: @member.id), class: "btn btn-warning" %>
       </div>
     </div>
