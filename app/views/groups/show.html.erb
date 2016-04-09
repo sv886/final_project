@@ -4,14 +4,13 @@
     <div class="group">
       <h1><%= @current_user.gym_name %></h1>
       <hr>
-      <h2><%= @group.class_time %>- Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h2>
+      <h1><%= @group.class_time %>- Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h1>
       <h1>Group ID: <%= @group.id %></h1>
       <hr>
-
       <div class="classes">
         <% @group.members.each do |member| %>
-          <div class="tweet">
-            <h4><%= member.member_first_name %> <%= member.member_last_name %>, Group ID: <%= member.group_id %></h4>
+          <div class="members">
+            <h4><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %>, Group ID: <%= member.group_id %></h4>
             <hr>
           </div>
         <% end %>
