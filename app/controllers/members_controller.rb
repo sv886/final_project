@@ -1,11 +1,17 @@
 class MembersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action do
+    @current_user = User.find_by id: session[:user_id]
+  end
 
   def index
   end
 
   def show
+    @member = Member.find_by id: params[:id]
+    @user = @current_user
+    @group = @member.group
   end
 
   def new
@@ -14,10 +20,11 @@ class MembersController < ApplicationController
   end
 
   def create
+    @user = @current_user
     @group = Group.find_by id: params[:id]
     @member = Member.new member_params
     if @member.save
-      redirect_to root_path
+      redirect_to user_path(id: @user.id)
     else
       flash[:error] = "Unable to add member. Please check input fields and try again."
       render :new

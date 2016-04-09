@@ -1,2 +1,25 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<div class="container">
+
+    <div class="group">
+      <h1><%= @current_user.gym_name %></h1>
+      <hr>
+      <h1>Member Profile </h1>
+      <hr>
+      <h1> <%= @member.member_full_name %></h1>
+      <hr>
+        <div class="member_details">
+          <h4>Age: <%= @member.age %></h4>
+          <h4>Gender: <%= @member.gender %></h4>
+          <h4>Status: <%= @member.active %></h4>
+          <h4>Notes: <%= @member.notes %></h4>
+          <hr>
+        </div>
+
+      <div class="buttons">
+        <%= link_to "Home", user_path(id: @user.id), class: "btn btn-default" %>
+        <%= link_to "Add Member", new_member_path, class: "btn btn-success" %>
+        <%= link_to "Edit Class", edit_group_path(id: @group.id), class: "btn btn-warning" %>
+      </div>
+    </div>
+
+</div>
