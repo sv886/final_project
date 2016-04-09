@@ -4,8 +4,8 @@
   <div class="group_form">
     <%= simple_form_for @group do |f| %>
       <%= f.input :class_time, :required =>false, :label => 'Class Time', :placeholder => 'ex. "5:30 P.M."'  %>
-      <%= f.input :coach_first_name, :required =>false, :label => '', :placeholder => 'First Name of Coach'  %>
-      <%= f.input :coach_last_name, :required =>false, :label => '', :placeholder => 'Last Name of Coach'  %>
+      <%= f.input :coach_first_name, :required =>false, :label => 'Coach First Name', :placeholder => 'First Name of Coach'  %>
+      <%= f.input :coach_last_name, :required =>false, :label => 'Coach Last Name', :placeholder => 'Last Name of Coach'  %>
       <%= f.submit "Add Class", class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>

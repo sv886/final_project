@@ -1,2 +1,15 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<div class="container">
+    <div class="member_form">
+      <h1>Edit Member</h1>
+      <%= simple_form_for @member do |f| %>
+        <%= f.association :group, label_method: :coach_full_name, value_method: :id, include_blank: true %>
+        <%= f.input :member_first_name, :required =>false, :label => 'First Name', :placeholder => 'Member First Name'  %>
+        <%= f.input :member_last_name, :required =>false, :label => 'Last Name', :placeholder => 'Member Last Name'  %>
+        <%= f.input :age, :required =>false, :label => '', :placeholder => 'Age'  %>
+        <%= f.input :gender, collection: ['Male','Female'], :required =>false %>
+        <%= f.input :status, collection: ['Active','Inactive'], :required =>false %>
+        <%= f.input :notes, as: :text, :required =>false, :label => 'Notes', :placeholder => 'Health concerns (injury history etc.)'  %>
+        <%= f.submit "Update Member", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+</div>

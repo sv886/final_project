@@ -24,7 +24,7 @@ class MembersController < ApplicationController
     @group = Group.find_by id: params[:id]
     @member = Member.new member_params
     if @member.save
-      redirect_to user_path(id: @user.id)
+      redirect_to member_path(id: @member.id)
     else
       flash[:error] = "Unable to add member. Please check input fields and try again."
       render :new
@@ -32,15 +32,29 @@ class MembersController < ApplicationController
   end
 
   def edit
+    @member = Member.find_by id: params[:id]
   end
 
   def update
+    @user = @current_user
+    @member = Member.find_by id: params[:id]
+    if @user.id == session[:user_id]
+      if @member.update update_member_params
+        redirect_to member_path(id: @member.id)
+      else
+        render :edit
+      end
+    end
   end
 
   def delete
   end
 
   def member_params
-     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :gender)
+     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :gender, :notes)
+  end
+
+  def update_member_params
+     params.require(:member).permit(:group_id, :member_first_name, :member_last_name, :age, :gender, :status, :notes)
   end
 end
