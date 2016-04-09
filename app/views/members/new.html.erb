@@ -8,6 +8,7 @@
       <%= f.input :member_last_name, :required =>false, :label => 'Last Name', :placeholder => 'Member Last Name'  %>
       <%= f.input :age, :required =>false, :label => '', :placeholder => 'Age'  %>
       <%= f.input :gender, collection: ['Male','Female'], :required =>false %>
+      <%= f.input :status, collection: ['Active','Inactive'], :required =>false %>
       <%= f.input :notes, as: :text, :required =>false, :label => 'Notes', :placeholder => 'Health concerns (injury history etc.)'  %>
       <%= f.submit "Add Member", class: "btn btn-lg btn-primary" %>
     <% end %>
