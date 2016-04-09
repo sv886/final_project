@@ -9,4 +9,8 @@ class Group < ActiveRecord::Base
     "#{coach_first_name} #{coach_last_name}"
   end
 
+  def time_coach_full_name
+    "#{class_time} - #{coach_first_name} #{coach_last_name}"
+  end
+
 end
