@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409210021) do
+ActiveRecord::Schema.define(version: 20160410204022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 20160409210021) do
     t.string   "coach_last_name"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "measurements", force: :cascade do |t|
+    t.integer  "member_id"
+    t.string   "photo_id"
+    t.integer  "weight"
+    t.integer  "bicep_circ"
+    t.integer  "forearm_circ"
+    t.integer  "chest_circ"
+    t.integer  "waist_circ"
+    t.integer  "abdomen_circ"
+    t.integer  "hips_circ"
+    t.integer  "thigh_circ"
+    t.integer  "calf_circ"
+    t.integer  "bmi"
+    t.integer  "body_fat_percentage"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -37,6 +55,12 @@ ActiveRecord::Schema.define(version: 20160409210021) do
     t.string   "status",            default: "Active"
     t.integer  "height_inches"
   end
+
+  create_table "refile_attachments", force: :cascade do |t|
+    t.string "namespace", null: false
+  end
+
+  add_index "refile_attachments", ["namespace"], name: "index_refile_attachments_on_namespace", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "gym_name"
