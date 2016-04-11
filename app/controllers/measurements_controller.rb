@@ -28,9 +28,19 @@ class MeasurementsController < ApplicationController
   end
 
   def edit
+    @measurement = Measurement.find_by id: params[:id]
   end
 
   def update
+    @user = @current_user
+    @measurement = Measurement.find_by id: params[:id]
+    if @user.id == session[:user_id]
+      if @measurement.update measurement_params
+        redirect_to measurement_path(id: @measurement.id)
+      else
+        render :edit
+      end
+    end
   end
 
   def delete

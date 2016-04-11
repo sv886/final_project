@@ -1,6 +1,6 @@
 <div class="container">
     <div class="member_show">
-        <h1> <%= @measurement.member.member_first_name %>'s <%= @measurement.created_at.strftime("%m.%d.%Y") %> Measurement: </h1>
+        <h1> <%= link_to @measurement.member.member_first_name, member_path(id: @measurement.member.id) %>'s <%= @measurement.created_at.strftime("%m.%d.%Y") %> Measurement: </h1>
         <hr>
         <div class="measurements_show">
           <div class="measurement_image_show">
@@ -20,5 +20,6 @@
             <h4>Body Fat: <%= @measurement.body_fat_percentage %>%</h4>
           </div>
         </div>
+        <%= link_to "Edit Measurements", edit_measurement_path(id: @measurement.id), class: "btn btn-warning" %>
     </div>
 </div>

@@ -2,7 +2,7 @@
 <div class="container">
 
     <div class="group">
-      <h1><%= @current_user.gym_name %></h1>
+      <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
       <hr>
       <h1>Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h1>
       <h2><%= @group.class_time %> Class</h2>
@@ -18,7 +18,6 @@
       </div>
 
       <div class="buttons">
-        <%= link_to "Home", user_path(id: @user.id), class: "btn btn-default" %>
         <%= link_to "Add Member", new_member_path, class: "btn btn-success" %>
         <%= link_to "Edit Class", edit_group_path(id: @group.id), class: "btn btn-warning" %>
       </div>
