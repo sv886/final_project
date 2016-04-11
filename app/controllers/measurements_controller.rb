@@ -8,6 +8,7 @@ class MeasurementsController < ApplicationController
   end
 
   def show
+    @measurement = Measurement.find_by id: params[:id]
   end
 
   def new

@@ -1,3 +1,40 @@
-// Place all the styles related to the Measurements controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  display: flex;
+  justify-content: center;
+  .member {
+    width: 40%;
+    border: 2px solid #CCCCCC;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px 20px;
+      h1 {
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 25px;
+      }
+      h3 {
+        font-size: 15px;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+  .measurements {
+    display: flex;
+    flex-direction: row;
+    .measurement_image {
+      border-radius: 4px;
+      border: 1px solid #CCCCCC;
+    }
+    .measurement_details {
+      flex-direction: column;
+      margin-left: 10px;
+      }
+    }
+  }
+}

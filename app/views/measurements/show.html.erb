@@ -1,2 +1,24 @@
-<h1>Measurements#show</h1>
-<p>Find me in app/views/measurements/show.html.erb</p>
+<div class="container">
+    <div class="member_show">
+        <h1> <%= @measurement.member.member_first_name %>'s <%= @measurement.created_at.strftime("%m.%d.%Y") %> Measurement: </h1>
+        <hr>
+        <div class="measurements_show">
+          <div class="measurement_image_show">
+              <%= image_tag attachment_url(@measurement, :photo, :fill, 250, 250, format: "jpg")%>
+          </div>
+          <div class="measurement_details_show">
+            <h4>Weight: <%= @measurement.weight %> lbs</h4>
+            <h4>Bicep: <%= @measurement.bicep_circ %> in.</h4>
+            <h4>Forearm: <%= @measurement.forearm_circ %> in.</h4>
+            <h4>Chest: <%= @measurement.chest_circ %> in.</h4>
+            <h4>Waist: <%= @measurement.waist_circ %> in.</h4>
+            <h4>Abdomen: <%= @measurement.abdomen_circ %> in.</h4>
+            <h4>Hips: <%= @measurement.hips_circ %> in.</h4>
+            <h4>Thigh: <%= @measurement.thigh_circ %> in.</h4>
+            <h4>Calf: <%= @measurement.calf_circ %> in.</h4>
+            <h4>BMI: <%= @measurement.bmi %></h4>
+            <h4>Body Fat: <%= @measurement.body_fat_percentage %>%</h4>
+          </div>
+        </div>
+    </div>
+</div>

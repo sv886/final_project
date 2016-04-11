@@ -1,11 +1,10 @@
 <div class="container">
-
-    <div class="group">
+    <div class="member">
       <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
+      <h1><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
       <hr>
-      <h1>Member Profile </h1>
-      <hr>
-      <h1> <%= @member.member_full_name %> <%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
+      <h3>Member Profile: </h3>
+      <h1> <%= @member.member_full_name %></h1>
       <hr>
         <div class="member_details">
           <h4>Age: <%= @member.age %></h4>
@@ -13,22 +12,30 @@
           <h4>Height: <%= @member.height_inches %> </h4>
           <h4>Membership: <%= @member.status %></h4>
           <h4>Notes: <%= @member.notes %></h4>
-          <hr>
+          <br>
         </div>
+        <div class="buttons">
+          <%= link_to "Edit Member", edit_member_path(id: @member.id), class: "btn btn-warning" %>
+          <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
+        </div>
+        <hr>
+        <h1> <%= @member.member_first_name %>'s Measurement History: </h1>
 
-        <% @member.measurements.each do |measurement| %>
-        <div class="measurement_details">
-          <%= image_tag attachment_url(measurement, :photo, :fill, 200, 200, format: "jpg")%>
-          <h4>Member ID Check: <%= measurement.member_id %></h4>
-          <h4>Weight: <%= measurement.weight %></h4>
-          <hr>
+        <% @member.measurements.order(created_at: :desc).each do |measurement| %>
+        <hr>
+        <div class="measurements">
+          <div class="measurement_image">
+            <%= link_to measurement_path(measurement) do %>
+              <%= image_tag attachment_url(measurement, :photo, :fill, 120, 120, format: "jpg")%>
+            <% end %>
+          </div>
+          <div class="measurement_details">
+            <h4>Weight: <%= measurement.weight %></h4>
+            <h4>Body Fat %: <%= measurement.body_fat_percentage %></h4>
+            <h4>Created: <%= distance_of_time_in_words measurement.created_at, Time.now %> ago</h4>
+          </div>
         </div>
         <% end %>
 
-      <div class="buttons">
-        <%= link_to "Edit Member", edit_member_path(id: @member.id), class: "btn btn-warning" %>
-        <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
-      </div>
     </div>
-
 </div>
