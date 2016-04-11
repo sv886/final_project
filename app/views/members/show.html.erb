@@ -1,11 +1,11 @@
 <div class="container">
 
     <div class="group">
-      <h1><%= @current_user.gym_name %></h1>
+      <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
       <hr>
       <h1>Member Profile </h1>
       <hr>
-      <h1> <%= @member.member_full_name %></h1>
+      <h1> <%= @member.member_full_name %> <%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
       <hr>
         <div class="member_details">
           <h4>Age: <%= @member.age %></h4>
@@ -16,10 +16,18 @@
           <hr>
         </div>
 
+        <% @member.measurements.each do |measurement| %>
+        <div class="measurement_details">
+          <%= image_tag attachment_url(measurement, :photo, :fill, 200, 200, format: "jpg")%>
+          <h4>Member ID Check: <%= measurement.member_id %></h4>
+          <h4>Weight: <%= measurement.weight %></h4>
+          <hr>
+        </div>
+        <% end %>
+
       <div class="buttons">
-        <%= link_to "Home", user_path(id: @user.id), class: "btn btn-default" %>
-        <%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %>
         <%= link_to "Edit Member", edit_member_path(id: @member.id), class: "btn btn-warning" %>
+        <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
       </div>
     </div>
 

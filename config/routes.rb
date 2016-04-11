@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'measurements/index'
-
-  get 'measurements/show'
-
-  get 'measurements/new'
-
-  get 'measurements/create'
-
-  get 'measurements/edit'
-
-  get 'measurements/update'
-
-  get 'measurements/delete'
-
   root 'welcome#index'
 
   get 'login' => 'sessions#new', as: :login
@@ -29,9 +15,11 @@ Rails.application.routes.draw do
 
   resources :groups
 
-  resources :members
+  resources :members do
+    resources :measurements, only: [:index, :new, :create]
+  end
 
-  resources :measurements
+  resources :measurements, only: [:show, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
