@@ -2,7 +2,7 @@
     <div class="member_form">
       <h1>Edit Member</h1>
       <%= simple_form_for @member do |f| %>
-        <%= f.association :group, :required =>false, :label => 'Group Coach (Class Time Once ID fixed)', label_method: :time_coach_full_name, value_method: :id, include_blank: true %>
+        <%= f.association :group, collection: @current_user.groups, :required =>false, :label => 'Class Time', label_method: :time_coach_full_name, value_method: :id, include_blank: true %>
         <%= f.input :member_first_name, :required =>false, :label => 'First Name', :placeholder => 'Member First Name'  %>
         <%= f.input :member_last_name, :required =>false, :label => 'Last Name', :placeholder => 'Member Last Name'  %>
         <%= f.input :age, :required =>false, :label => '', :placeholder => 'Age'  %>
