@@ -1,13 +1,14 @@
 <div class="container">
     <div class="member_show">
-        <h1> <%= link_to "#{@measurement.member.member_first_name}'s", member_path(id: @measurement.member.id) %> <%= @measurement.created_at.strftime("%m.%d.%Y") %> Measurements: </h1>
+        <h1> <%= link_to "#{@measurement.member.member_first_name}'s", member_path(id: @measurement.member.id) %> Measurements: </h1>
+        <h1><%= @measurement.created_at.strftime("%m.%d.%Y") %></h1>
         <hr>
         <div class="measurements_show">
           <div class="measurement_image_show">
               <%= image_tag attachment_url(@measurement, :photo, :fill, 300, 300, format: "jpg")%>
           </div>
           <hr>
-          <table class="table table-striped">
+          <table class="table table-striped table-sm">
             <thead>
               <tr>
                 <th>Measurement</th>
