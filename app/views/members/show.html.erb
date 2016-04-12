@@ -3,12 +3,19 @@
       <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
       <h1><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
       <hr>
-
-        <% @member.measurements.order(created_at: :desc).each do |measurement| %>
-          <div id="elem0" class="toBeFaded"><%= image_tag attachment_url(measurement, :photo, :fill, 200, 200, format: "jpg")%></div>
+      <div class="slide">
+        <% @member.measurements.order(created_at: :desc).each_with_index do |measurement, i| %>
+          <div id="<%= "elem#{i}" %>" class="toBeFaded">
+            <div class="fade_date">
+               Taken <%= distance_of_time_in_words measurement.created_at, Time.now %> ago
+            </div>
+            <div class="fade_pic">
+              <%= image_tag attachment_url(measurement, :photo, :fill, 200, 200, format: "jpg")%>
+            </div>
+          </div>
         <% end %>
-
-
+      </div>
+      <hr>
       <h1> <%= @member.member_full_name %></h1>
       <hr>
         <div class="member_details">
