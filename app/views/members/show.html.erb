@@ -3,7 +3,12 @@
       <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
       <h1><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
       <hr>
-      <h3>Member Profile: </h3>
+
+        <% @member.measurements.order(created_at: :desc).each do |measurement| %>
+          <div id="elem0" class="toBeFaded"><%= image_tag attachment_url(measurement, :photo, :fill, 200, 200, format: "jpg")%></div>
+        <% end %>
+
+
       <h1> <%= @member.member_full_name %></h1>
       <hr>
         <div class="member_details">
