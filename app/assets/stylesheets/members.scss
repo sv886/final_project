@@ -1,10 +1,14 @@
 .container {
   display: flex;
   justify-content: center;
-  .toBeFaded {
-    display: none;
-    position:absolute;
-    font-size: 20px;
+  .slide {
+    height: 220px;
+    width: 200px;
+    .toBeFaded {
+      display: none;
+      position:absolute;
+      font-size: 20px;
+    }
   }
   .member_form {
     width: 40%;
