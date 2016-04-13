@@ -26,14 +26,23 @@ $accents: #BDC3C7;
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 2px solid darken($main_color, 5%);
+    border-bottom: 3px solid darken($main_color, 8%);
     ul {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      i {
-        color: $accents;
+      li {
+        display: flex;
+        width: 25%;
+        border-right: 2px solid darken($main_color, 5%);
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        i {
+          color: $accents;
+        }
+      }
+      li:last-child {
+        border-right: none;
       }
     }
   }
