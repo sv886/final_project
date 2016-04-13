@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   .slide {
-    height: 220px;
-    width: 200px;
+    height: 270px;
+    width: 250px;
     .toBeFaded {
       display: none;
       position:absolute;
@@ -11,7 +11,7 @@
     }
   }
   .member_form {
-    width: 40%;
+    width: 80%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     justify-content: center;
@@ -21,7 +21,7 @@
     padding: 20px 20px;
   }
   .group {
-    width: 40%;
+    width: 80%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     justify-content: center;

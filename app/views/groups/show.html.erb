@@ -1,8 +1,9 @@
+<%= render "layouts/header" %>
 
 <div class="container">
 
     <div class="group">
-      <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
+      <h1><%= @current_user.gym_name %></h1>
       <hr>
       <h1>Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h1>
       <h2><%= @group.class_time %> Class</h2>
