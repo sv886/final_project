@@ -29,7 +29,11 @@
         <div class="member_details">
           <h4>Age: <%= @member.age %></h4>
           <h4>Gender: <%= @member.gender %></h4>
-          <h4>Height: <%= "#{@member.height_inches/12}' #{@member.height_inches%12}\"" %> </h4>
+          <% if @member.height_inches? %>
+            <h4>Height: <%= "#{@member.height_inches/12}' #{@member.height_inches%12}\"" %></h4>
+            <% else %>
+            <h4>Height: not entered</h4>
+          <% end %>
           <h4>Membership: <%= @member.status %></h4>
           <h4>Notes: <%= @member.notes %></h4>
           <br>

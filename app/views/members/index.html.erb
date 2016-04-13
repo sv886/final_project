@@ -1,2 +1,14 @@
-<h1>Members#index</h1>
-<p>Find me in app/views/members/index.html.erb</p>
+<%= render "layouts/header" %>
+
+<div class="container">
+  <div class="members-index">
+
+    <% @members.each do |member| %>
+    <ul>
+      <li><%= member.member_last_name %>, <%= member.member_first_name %></li>
+    </ul>
+    <% end %>
+
+
+  </div>
+</div>
