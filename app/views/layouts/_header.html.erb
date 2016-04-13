@@ -1,24 +1,24 @@
 <div class="app_nav">
-    <ul class="nav nav-pills">
-    <li>
-      <%= link_to user_path(id: @current_user.id), class: "button" do %>
-        <i class="glyphicon glyphicon-home gi-4x"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to user_path(id: @current_user.id), class: "button" do %>
-        <i class="glyphicon glyphicon-scale gi-4x"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to user_path(id: @current_user.id), class: "button" do %>
-        <i class="glyphicon glyphicon-stats gi-4x"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to members_path, class: "button" do %>
-        <i class="glyphicon glyphicon-user gi-4x"></i>
-      <% end %>
-    </li>
+  <ul class="nav nav-pills">
+      <li>
+        <%= link_to user_path(id: @current_user.id), class: "button" do %>
+          <i class="glyphicon glyphicon-home gi-4x"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_path(id: @current_user.id), class: "button" do %>
+          <i class="glyphicon glyphicon-plus gi-4x"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_path(id: @current_user.id), class: "button" do %>
+          <i class="glyphicon glyphicon-stats gi-4x"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to members_path, class: "button" do %>
+          <i class="glyphicon glyphicon-user gi-4x"></i>
+        <% end %>
+      </li>
   </ul>
 </div>
