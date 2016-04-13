@@ -9,7 +9,7 @@
     <div class="classes">
       <% @user.groups.order("groups.coach_first_name ASC").each do |group| %>
         <div class="tweet">
-          <h4><%= link_to group.class_time, group_path(id: group.id) %> <%= group.coach_first_name %> <%= group.coach_last_name %> - <%= pluralize group.members.count, 'member' %></h4>
+          <h4><%= link_to group.class_time, group_path(id: group.id) %> <%= pluralize group.members.count, 'member' %> - Coach <%= group.coach_first_name %></h4>
           <hr>
         </div>
       <% end %>
