@@ -1,7 +1,9 @@
+<%= render "layouts/header" %>
+
 <div class="container">
   <div class="user_show">
     <div class="gym_name">
-      <h1><%= link_to @current_user.gym_name, edit_user_path %></h1>
+      <h1><%= @current_user.gym_name %></h1>
     </div>
     <hr>
     <div class="classes">

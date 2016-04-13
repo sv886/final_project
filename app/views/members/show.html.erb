@@ -1,8 +1,18 @@
+<%= render "layouts/header" %>
+
 <div class="container">
     <div class="member">
-      <h1><%= link_to @current_user.gym_name, user_path(id: @user.id) %></h1>
+      <h1><%= @current_user.gym_name %></h1>
       <h1><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
       <hr>
+      <div class="member_details">
+        <h1> <%= @member.member_full_name %></h1>
+        <div>
+          <%= link_to edit_member_path(id: @member.id), class: "button" do %>
+            <i class="glyphicon glyphicon-edit gi-2x"></i>
+          <% end %>
+        </div>
+      </div>
       <div class="slide">
         <% @member.measurements.order(created_at: :asc).each_with_index do |measurement, i| %>
           <div id="<%= "elem#{i}" %>" class="toBeFaded">
@@ -10,13 +20,11 @@
                Taken <%= distance_of_time_in_words measurement.created_at, Time.now %> ago
             </div>
             <div class="fade_pic">
-              <%= image_tag attachment_url(measurement, :photo, :fill, 200, 200, format: "jpg")%>
+              <%= image_tag attachment_url(measurement, :photo, :fill, 250, 250, format: "jpg")%>
             </div>
           </div>
         <% end %>
       </div>
-      <hr>
-      <h1> <%= @member.member_full_name %></h1>
       <hr>
         <div class="member_details">
           <h4>Age: <%= @member.age %></h4>
@@ -27,11 +35,10 @@
           <br>
         </div>
         <div class="buttons">
-          <%= link_to "Edit Member", edit_member_path(id: @member.id), class: "btn btn-warning" %>
           <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
         </div>
         <hr>
-        <h1> <%= @member.member_first_name %>'s Measurement History: </h1>
+        <h1> <%= @member.member_first_name %>'s Measurements: </h1>
 
         <% @member.measurements.order(created_at: :desc).each do |measurement| %>
         <hr>

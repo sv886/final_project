@@ -5,3 +5,36 @@
 @import "groups";
 @import "members";
 @import "measurements";
+
+$main_color: #7F8C8D;
+$background: #ECF0F1;
+$accents: #BDC3C7;
+
+.gi-2x{font-size: 2em;}
+.gi-3x{font-size: 3em;}
+.gi-4x{font-size: 4em;}
+.gi-5x{font-size: 5em;}
+
+// body {
+//   background-image: url(http://i.imgur.com/54ySG1B.png);
+//   background-size: auto;
+//   background-position: top;
+//   font-family: 'Walter Turncoat', cursive;
+
+  .app_nav {
+    background-color: $main_color;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid darken($main_color, 5%);
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        color: $accents;
+      }
+    }
+  }
+// }
