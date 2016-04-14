@@ -1,7 +1,7 @@
 $(function (){
 
     var fadeTime = 1000, // the amount of time in milliseconds that the elements will fade in AND fade out
-        delayTime = 2500, // // the amount of time in milliseconds that there will be a delay between the fade ins and fade outs
+        delayTime = 2000, // // the amount of time in milliseconds that there will be a delay between the fade ins and fade outs
         totalTime = fadeTime + delayTime, //3000 milliseconds...needed for all those delays we talked about
         allElems, // find out exactly how many page elements have the 'toBeFaded' class (x)
         elemNoFade, // Will help us find the last element represent the last element (elem(x-1) bc start with elem0)

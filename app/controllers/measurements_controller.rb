@@ -50,7 +50,7 @@ class MeasurementsController < ApplicationController
     @user = @current_user
     @measurement = Measurement.find_by id: params[:id]
     if @user.id == session[:user_id]
-      if @measurement.update measurement_params
+      if @measurement.update update_measurement_params
         redirect_to measurement_path(id: @measurement.id)
       else
         render :edit
@@ -63,6 +63,10 @@ class MeasurementsController < ApplicationController
 
   def measurement_params
      params.require(:measurement).permit(:member_id, :photo, :weight, :bicep_circ, :forearm_circ, :chest_circ, :waist_circ, :abdomen_circ, :hips_circ, :thigh_circ, :calf_circ, :bmi, :body_fat_percentage)
+  end
+
+  def update_measurement_params
+     params.require(:measurement).permit(:photo, :weight, :bicep_circ, :forearm_circ, :chest_circ, :waist_circ, :abdomen_circ, :hips_circ, :thigh_circ, :calf_circ, :bmi, :body_fat_percentage)
   end
 
 end

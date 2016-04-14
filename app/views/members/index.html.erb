@@ -2,13 +2,46 @@
 
 <div class="container">
   <div class="members-index">
-
-    <% @members.each do |member| %>
-    <ul>
-      <li><%= member.member_last_name %>, <%= member.member_first_name %></li>
-    </ul>
-    <% end %>
-
-
+    <div class="members-header">
+      <h1><%= @current_user.gym_name %></h1>
+    </div>
+    <div class="members-details">
+      <h2>Currently <%= @active.count %> active memberships.</h2>
+    </div>
+    <hr>
+    <h1>Active Memberships</h1>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Membership Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @active.each do |member| %>
+          <tr>
+            <td><%= link_to member.last_name_first, member_path(id: member.id) %></td>
+            <td><%= member.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <h1>Inactive Memberships</h1>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Membership Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @inactive.each do |member| %>
+          <tr>
+            <td><%= link_to member.last_name_first, member_path(id: member.id) %></td>
+            <td><%= member.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
