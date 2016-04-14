@@ -12,8 +12,10 @@ $accents: #BDC3C7;
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30%;
     padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
   }
   .user_show {
     width: 90%;
@@ -22,7 +24,7 @@ $accents: #BDC3C7;
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 20px 20px;
     background-color: $background;
     opacity: 0.85;
