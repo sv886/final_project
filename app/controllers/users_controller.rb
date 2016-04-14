@@ -6,7 +6,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: params[:id]
+    @current_user = User.find_by id: params[:id]
+    @groups = @current_user.groups
+    @members = @current_user.members
+    # @male = []
+    # @female = []
+    # @genders = @members.map { |member|
+    #   if member.gender == "Male"
+    #     @male.push(member)
+    #   else
+    #     @female.push(member)
+    #   end
+    # }
+
   end
 
   def new

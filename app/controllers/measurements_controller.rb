@@ -11,6 +11,21 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.find_by id: params[:id]
   end
 
+  def quick_add
+    @measurement = Measurement.new
+  end
+
+  def create_quick_add
+    @user = @current_user
+    @measurement = Measurement.new measurement_params
+    if @measurement.save
+      redirect_to user_path(id: @user.id)
+    else
+      flash[:error] = "Unable to add measurement. Please check input fields and try again."
+      render :new
+    end
+  end
+
   def new
     @measurement = Measurement.new
   end

@@ -4,10 +4,12 @@
   <div class="user_show">
     <div class="gym_name">
       <h1><%= @current_user.gym_name %></h1>
+      <h1><%= @members.length %> total members active/inactive</h1>
+
     </div>
     <hr>
     <div class="classes">
-      <% @user.groups.order("groups.coach_first_name ASC").each do |group| %>
+      <% @groups.order("groups.coach_first_name ASC").each do |group| %>
         <div class="tweet">
           <h4><%= link_to group.class_time, group_path(id: group.id) %> <%= pluralize group.members.count, 'member' %> - Coach <%= group.coach_first_name %></h4>
           <hr>
