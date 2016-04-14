@@ -1,10 +1,21 @@
+$main_color: #7F8C8D;
+$background: #ECF0F1;
+$accents: #BDC3C7;
+
 .container {
   display: flex;
   justify-content: center;
   .member {
-      margin: 20px 0;
-      padding: 20px 20px;
-      width: 80%;
+    width: 90%;
+    border: 2px solid #CCCCCC;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
     .member_show_header {
       display: flex;
       flex-direction: row;
@@ -41,7 +52,7 @@
       }
   }
   .members-index{
-    width: 80%;
+    width: 90%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     flex-direction: column;
@@ -50,9 +61,11 @@
     align-items: center;
     margin: 20px 0;
     padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
   }
   .member_form {
-    width: 80%;
+    width: 90%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     justify-content: center;
@@ -60,9 +73,11 @@
     align-items: center;
     margin: 20px 0;
     padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
   }
   .group {
-    width: 80%;
+    width: 90%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     justify-content: center;
@@ -70,6 +85,8 @@
     align-items: center;
     margin: 20px 0;
     padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
       h1 {
         font-size: 30px;
       }

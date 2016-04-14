@@ -1,8 +1,12 @@
+$main_color: #7F8C8D;
+$background: #ECF0F1;
+$accents: #BDC3C7;
+
 .container {
   display: flex;
   justify-content: center;
     .login_form {
-      width: 50%;
+      width: 70%;
       border: 2px solid #CCCCCC;
       border-radius: 10px;
       flex-direction: column;
@@ -11,6 +15,8 @@
       align-items: center;
       margin-top: 20px;
       padding: 20px 20px;
+      background-color: $background;
+      opacity: 0.85;
         .buttons {
           display: flex;
           flex-direction: row;

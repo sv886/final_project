@@ -1,3 +1,7 @@
+$main_color: #7F8C8D;
+$background: #ECF0F1;
+$accents: #BDC3C7;
+
 .container {
   display: flex;
   justify-content: center;
@@ -12,7 +16,7 @@
     padding: 20px 20px;
   }
   .user_show {
-    width: 80%;
+    width: 90%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     justify-content: center;
@@ -20,6 +24,8 @@
     align-items: center;
     margin-top: 20px;
     padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
       .buttons {
         display: flex;
         flex-direction: row;
@@ -27,7 +33,7 @@
       }
     }
     .user_form {
-      width: 80%;
+      width: 90%;
       border: 2px solid #CCCCCC;
       border-radius: 10px;
       justify-content: center;
@@ -35,5 +41,7 @@
       align-items: center;
       margin-top: 20px;
       padding: 20px 20px;
+      background-color: $background;
+      opacity: 0.85;
     }
 }
