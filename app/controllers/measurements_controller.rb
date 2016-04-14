@@ -22,7 +22,7 @@ class MeasurementsController < ApplicationController
       redirect_to user_path(id: @user.id)
     else
       flash[:error] = "Unable to add measurement. Please check input fields and try again."
-      render :new
+      render :quick_add
     end
   end
 
