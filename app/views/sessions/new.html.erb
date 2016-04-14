@@ -2,16 +2,23 @@
 <div class="container">
 
   <div class="login_form">
-    <%= simple_form_for :sessions, :url => login_path, :html => { :class => 'form-vertical' } do |f| %>
+    <h1>Welcome to Total Body Data</h1>
+    <h2>Please login below</h2>
 
+    <%= simple_form_for :sessions, :url => login_path, :html => { :class => 'form-vertical' } do |f| %>
       <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
       <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password' %>
       <div class="buttons">
         <%= f.submit "Sign in", class: "btn btn-lg btn-primary" %>
         <%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-default" %>
       </div>
-
     <% end %>
+  </div>
+
+  <div class="login_about">
+    <h2>About Total Body Data</h2>
+    <h2>Features description</h2>
+    <h2>Navigation Tutorial</h2>
   </div>
 
 </div>
