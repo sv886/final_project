@@ -9,4 +9,8 @@ class Member < ActiveRecord::Base
     "#{member_first_name} #{member_last_name}"
   end
 
+  def last_name_first
+    "#{member_last_name}, #{member_first_name}"
+  end
+
 end

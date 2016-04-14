@@ -1,15 +1,23 @@
 .container {
   display: flex;
   justify-content: center;
-  .member {
+  .measure_show {
     width: 80%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 20px 20px;
+    .measure_header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .measurement_header_text{
+        flex-direction: column;
+      }
+    }
       h1 {
         font-size: 30px;
       }
@@ -24,17 +32,5 @@
         flex-direction: row;
         justify-content: space-around;
       }
-  .measurements {
-    display: flex;
-    flex-direction: row;
-    .measurement_image {
-      border-radius: 4px;
-      border: 1px solid #CCCCCC;
-    }
-    .measurement_details {
-      flex-direction: column;
-      margin-left: 10px;
-      }
-    }
   }
 }

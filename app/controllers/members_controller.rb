@@ -8,6 +8,16 @@ class MembersController < ApplicationController
   def index
     @user = @current_user
     @members = @user.members
+    @active = []
+    @inactive = []
+
+    @status = @members.map do |member|
+      if member.status == "Active"
+        @active.push(member)
+      else
+        @inactive.push(member)
+      end
+    end
   end
 
   def show

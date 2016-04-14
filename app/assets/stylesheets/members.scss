@@ -1,14 +1,55 @@
 .container {
   display: flex;
   justify-content: center;
-  .slide {
-    height: 270px;
-    width: 250px;
-    .toBeFaded {
-      display: none;
-      position:absolute;
-      font-size: 20px;
+  .member {
+      margin: 20px 0;
+      padding: 20px 20px;
+      width: 80%;
+    .member_show_header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .member_header_left {
+
+        .slide {
+          height: 270px;
+          width: 250px;
+          .toBeFaded {
+            display: none;
+            position:absolute;
+            font-size: 20px;
+          }
+        }
+      }
+      .member_header_right {
+        flex-direction: column;
+        align-content: center;
+      }
     }
+    .member_measurements {
+      display: flex;
+      flex-direction: row;
+      .member_measurement_image {
+        border-radius: 4px;
+        border: 1px solid #CCCCCC;
+      }
+      .member_measurement_details {
+        flex-direction: column;
+        margin-left: 10px;
+        }
+      }
+  }
+  .members-index{
+    width: 80%;
+    border: 2px solid #CCCCCC;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px 20px;
   }
   .member_form {
     width: 80%;
@@ -17,7 +58,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 20px 20px;
   }
   .group {
@@ -27,7 +68,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 20px 20px;
       h1 {
         font-size: 30px;
