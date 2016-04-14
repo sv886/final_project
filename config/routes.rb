@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   resources :groups
 
+  get 'measurements/quick_add' => 'measurements#quick_add', as: :quick_add
+  post 'measurements' => 'measurements#create_quick_add'
+
   resources :members do
     resources :measurements, only: [:index, :new, :create]
   end
