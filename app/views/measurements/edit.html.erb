@@ -5,17 +5,41 @@
       <h1>Edit Measurements</h1>
       <%= simple_form_for @measurement do |f| %>
         <%= f.input :photo, as: :file, :required =>false, :label => 'Member Photo'  %>
-        <%= f.input :weight, :required =>false, :label => 'Weight', :placeholder => 'weight in lbs'  %>
-        <%= f.input :bicep_circ, :required =>false, :label => 'Bicep Circumference', :placeholder => 'Bicep Circumference'  %>
-        <%= f.input :forearm_circ, :required =>false, :label => 'Forearm Circumference', :placeholder => 'Forearm Circumference'  %>
-        <%= f.input :chest_circ, :required =>false, :label => 'Chest Circumference', :placeholder => 'Chest Circumference'  %>
-        <%= f.input :waist_circ, :required =>false, :label => 'Waist Circumference', :placeholder => 'Waist Circumference'  %>
-        <%= f.input :abdomen_circ, :required =>false, :label => 'Abdomen Circumference', :placeholder => 'Abdomen Circumference'  %>
-        <%= f.input :hips_circ, :required =>false, :label => 'Hips Circumference', :placeholder => 'Hips Circumference'  %>
-        <%= f.input :thigh_circ, :required =>false, :label => 'Thigh Circumference', :placeholder => 'Thigh Circumference'  %>
-        <%= f.input :calf_circ, :required =>false, :label => 'Calf Circumference', :placeholder => 'Calf Circumference'  %>
-        <%= f.input :bmi, :required =>false, :label => 'BMI', :placeholder => 'BMI'  %>
-        <%= f.input :body_fat_percentage, :required =>false, :label => 'Body Fat Percentage', :placeholder => 'Body Fat Percentage'  %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.input :weight, :required =>false, :label => 'Weight', :placeholder => 'Weight in lbs'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :bicep_circ, :required =>false, :label => 'Bicep Circumference', :placeholder => 'Bicep Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :forearm_circ, :required =>false, :label => 'Forearm Circumference', :placeholder => 'Forearm Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :chest_circ, :required =>false, :label => 'Chest Circumference', :placeholder => 'Chest Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :waist_circ, :required =>false, :label => 'Waist Circumference', :placeholder => 'Waist Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :abdomen_circ, :required =>false, :label => 'Abdomen Circumference', :placeholder => 'Abdomen Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :hips_circ, :required =>false, :label => 'Hips Circumference', :placeholder => 'Hips Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :thigh_circ, :required =>false, :label => 'Thigh Circumference', :placeholder => 'Thigh Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :calf_circ, :required =>false, :label => 'Calf Circumference', :placeholder => 'Calf Circumference'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :bmi, :required =>false, :label => 'BMI', :placeholder => 'BMI'  %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :body_fat_percentage, :required =>false, :label => 'Body Fat Percentage', :placeholder => 'Body Fat Percentage'  %>
+            </div>
+          </div>
         <%= f.submit "Edit Measurements", class: "btn btn-lg btn-primary" %>
       <% end %>
     </div>
