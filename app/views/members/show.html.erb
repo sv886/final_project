@@ -8,6 +8,15 @@
       <div class="member_show_header">
         <div class="member_header_left">
           <div class="member_details">
+
+            <% if @member.current_results && @member.current_weight %>
+              <h1> Current Weight: <%= @member.current_weight %></h1>
+              <%= image_tag attachment_url(@member.current_results, :photo, :fill, 100, 100, format: "jpg")%>
+            <% else %>
+              <h1>No measurements logged</h1>
+            <% end %>
+
+
             <h1> <%= @member.member_full_name %></h1>
             <div>
               <%= link_to edit_member_path(id: @member.id), class: "button" do %>
@@ -16,15 +25,23 @@
             </div>
           </div>
           <div class="slide">
-            <% @member.measurements.order(created_at: :asc).each_with_index do |measurement, i| %>
-              <div id="<%= "elem#{i}" %>" class="toBeFaded">
-                <div class="fade_date">
-                   Taken <%= distance_of_time_in_words measurement.created_at, Time.now %> ago
+            <% if @member.measurements.length > 1 %>
+              <% @member.measurements.order(created_at: :asc).each_with_index do |measurement, i| %>
+                <div id="<%= "elem#{i}" %>" class="toBeFaded">
+                  <div class="fade_date">
+                     Taken <%= distance_of_time_in_words measurement.created_at, Time.now %> ago
+                  </div>
+                  <div class="fade_pic">
+                    <%= image_tag attachment_url(measurement, :photo, :fill, 250, 250, format: "jpg")%>
+                  </div>
                 </div>
+              <% end %>
+            <% else %>
+              <% @member.measurements.each do |measurement| %>
                 <div class="fade_pic">
                   <%= image_tag attachment_url(measurement, :photo, :fill, 250, 250, format: "jpg")%>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         </div>
