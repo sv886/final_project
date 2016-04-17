@@ -60,3 +60,5 @@ gem 'refile-postgres'
 gem 'rails-erd'
 
 gem 'simple_form'
+
+gem 'chosen-rails'
