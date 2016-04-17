@@ -32,9 +32,14 @@ class MembersController < ApplicationController
     @group = @member.group
     @measurements = @member.measurements
 
-    @weights = @measurements.map do |measurement|
-      { weight: measurement.weight,  created_at: measurement.created_at }
-    end
+    @weight_diff = @measurements.order("updated_at ASC").map { |m| m.weight }
+    @weight_diff = @weight_diff.last - @weight_diff.first
+
+    @bf_diff = @measurements.order("updated_at ASC").map { |m| m.body_fat_percentage }
+    @bf_diff = @bf_diff.last - @bf_diff.first
+
+    @waist_diff = @measurements.order("updated_at ASC").map { |m| m.waist_circ }
+    @waist_diff = @waist_diff.last - @waist_diff.first
 
   end
 
