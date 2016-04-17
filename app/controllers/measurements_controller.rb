@@ -27,6 +27,7 @@ class MeasurementsController < ApplicationController
   end
 
   def new
+    @member = Member.find_by id: params[:member_id]
     @measurement = Measurement.new
   end
 

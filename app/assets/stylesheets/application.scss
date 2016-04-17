@@ -1,10 +1,12 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import "chosen";
 @import "sessions";
 @import "users";
 @import "groups";
 @import "members";
 @import "measurements";
+
 
 $main_color: #7F8C8D;
 $background: #ECF0F1;
