@@ -7,14 +7,15 @@
       <hr>
       <h1>Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h1>
       <h2><%= @group.class_time %> Class</h2>
-      <h3>Members:</h3>
       <hr>
       <div class="classes">
-        <% @group.members.each do |member| %>
+        <% @active_members.each do |member| %>
           <div class="members">
             <h4><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %></h4>
-            <hr>
+            <%= image_tag attachment_url(member.current_results, :photo, :fill, 100, 100, format: "jpg")%>
+            <h1> Current Weight: <%= member.current_weight %> lbs.</h1>
           </div>
+          <hr>
         <% end %>
       </div>
 

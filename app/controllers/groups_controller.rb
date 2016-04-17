@@ -12,6 +12,9 @@ class GroupsController < ApplicationController
   def show
     @user = @current_user
     @group = Group.find_by id: params[:id]
+    @members = @group.members
+    @active_members = @members.select { |member| member.status == "Active" }
+    @measurements = @group.measurements
   end
 
   def new

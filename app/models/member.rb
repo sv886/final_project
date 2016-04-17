@@ -13,4 +13,13 @@ class Member < ActiveRecord::Base
     "#{member_last_name}, #{member_first_name}"
   end
 
+  def current_results
+    measurements.last
+  end
+
+  def current_weight
+    # map measurements for most current weight result
+    measurements.map { |m| m.weight }.last
+  end
+
 end
