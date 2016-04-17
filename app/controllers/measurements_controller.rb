@@ -59,7 +59,10 @@ class MeasurementsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @measurement = Measurement.find_by id: params[:id]
+    @measurement.destroy
+    redirect_to members_path
   end
 
   def measurement_params

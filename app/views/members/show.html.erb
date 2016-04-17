@@ -8,19 +8,15 @@
       <div class="member_show_header">
         <div class="member_header_left">
           <div class="member_details">
-
-            <% if @member.current_results && @member.current_weight %>
-              <h1> Current Weight: <%= @member.current_weight %></h1>
-              <%= image_tag attachment_url(@member.current_results, :photo, :fill, 100, 100, format: "jpg")%>
-            <% else %>
-              <h1>No measurements logged</h1>
-            <% end %>
-
-
             <h1> <%= @member.member_full_name %></h1>
             <div>
               <%= link_to edit_member_path(id: @member.id), class: "button" do %>
                 <i class="glyphicon glyphicon-edit gi-2x"></i>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to member_graphs_path(id: @member.id), class: "button" do %>
+                <i class="glyphicon glyphicon-stats gi-2x"></i>
               <% end %>
             </div>
           </div>
