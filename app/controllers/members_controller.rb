@@ -11,7 +11,7 @@ class MembersController < ApplicationController
     @active = []
     @inactive = []
 
-    @status = @members.map do |member|
+    @status = @members.order("member_last_name ASC").map do |member|
       if member.status == "Active"
         @active.push(member)
       else
@@ -24,6 +24,18 @@ class MembersController < ApplicationController
     @user = @current_user
     @member = Member.find_by id: params[:id]
     @group = @member.group
+  end
+
+  def graphs
+    @user = @current_user
+    @member = Member.find_by id: params[:id]
+    @group = @member.group
+    @measurements = @member.measurements
+
+    @weights = @measurements.map do |measurement|
+      { weight: measurement.weight,  created_at: measurement.created_at }
+    end
+
   end
 
   def new

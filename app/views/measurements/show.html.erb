@@ -70,7 +70,8 @@
         </div>
         <hr>
         <div class="buttons">
-          <%= link_to "Edit Measurements", edit_measurement_path(id: @measurement.id), class: "btn btn-warning" %>
+         <%= link_to "Edit Measurements", edit_measurement_path(id: @measurement.id), class: "btn btn-warning" %>
+         <%= link_to "Delete Measurement", measurement_path(id: @measurement.id), method: :delete, data: {confirm: "Delete #{@measurement.created_at.strftime("%m.%d.%Y")} Measurement?"}, class:"btn btn-danger" %>
         </div>
     </div>
 </div>

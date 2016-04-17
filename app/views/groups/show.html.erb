@@ -11,9 +11,13 @@
       <div class="classes">
         <% @active_members.each do |member| %>
           <div class="members">
-            <h4><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %></h4>
-            <%= image_tag attachment_url(member.current_results, :photo, :fill, 100, 100, format: "jpg")%>
-            <h1> Current Weight: <%= member.current_weight %> lbs.</h1>
+              <h4><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %></h4>
+            <% if member.current_results.nil? %>
+              <h4>No measurements logged for <%= member.member_first_name %></h4>
+            <% else %>
+              <%= image_tag attachment_url(member.current_results, :photo, :fill, 100, 100, format: "jpg")%>
+              <h1> Current Weight: <%= member.current_weight %> lbs.</h1>
+            <% end %>
           </div>
           <hr>
         <% end %>
