@@ -5,6 +5,18 @@ $accents: #BDC3C7;
 .container {
   display: flex;
   justify-content: center;
+  .group_graphs {
+    width: 100%;
+    border: 2px solid #CCCCCC;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px 20px;
+    background-color: $background;
+    opacity: 0.85;
+  }
   .group_form {
     width: 100%;
     border: 2px solid #CCCCCC;

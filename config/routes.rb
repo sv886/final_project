@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update'
   delete 'users/:id' => 'users#delete'
 
+  get 'groups/graphs' => 'groups#graphs', as: :group_graphs
+
   resources :groups
 
   get 'measurements/quick_add' => 'measurements#quick_add', as: :quick_add

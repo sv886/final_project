@@ -9,6 +9,12 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def graphs
+    @groups = @current_user.groups
+    @members = @current_user.members
+    @max_age = @members.map { |m| m.age }.max
+  end
+
   def show
     @user = @current_user
     @group = Group.find_by id: params[:id]
