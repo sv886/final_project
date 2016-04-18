@@ -20,14 +20,15 @@
           <tr>
             <td><%= link_to group.class_time, group_path(id: group.id) %></td>
             <td><%= group.coach_first_name %></td>
-            <td><%= pluralize group.members.count, 'member' %></td>
+            <td><%= pluralize group.members.where(:status => "Active").count, 'member' %></td>
           <tr>
         <% end %>
       </tbody>
     </table>
     </div>
 
-    <%= line_chart @groups.group_by_day(:created_at, format: "%d %B").count,
+
+    <%= line_chart @members.group_by_day('members.created_at', format: "%d %B").count,
         discrete: true,
         xtitle: "Date Created",
         ytitle: "Classes Created",
