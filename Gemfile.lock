@@ -88,6 +88,8 @@ GEM
     erubis (2.7.0)
     execjs (2.6.0)
     ffi (1.9.10)
+    font-awesome-sass (4.5.0)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     groupdate (2.5.2)
@@ -222,6 +224,7 @@ DEPENDENCIES
   chartkick
   chosen-rails
   coffee-rails (~> 4.1.0)
+  font-awesome-sass
   groupdate
   jbuilder (~> 2.0)
   jquery-rails
