@@ -4,37 +4,64 @@ $accents: #BDC3C7;
 
 .container {
   display: flex;
-  justify-content: space-between;
-  .login_about {
-    width: 50%;
-    border: 2px solid lighten($main_color, 10%);;
-    border-radius: 5px;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin-top: 20px;
-    padding: 20px 20px;
-    background-color: $main_color;
+  flex-direction: column;
+  .login_title {
+    margin: 0 auto;
     opacity: 0.85;
-  }
-    .login_form {
-      width: 40%;
-      border: 2px solid #CCCCCC;
-      border-radius: 5px;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
-      margin-top: 20px;
-      padding: 20px 20px;
-      background-color: $background;
-      opacity: 0.80;
-        .buttons {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-        }
+    h1 {
+    border-radius: 5px;
+    border: 2px solid $main_color;
+    background-color: #333332;
+    padding: 10px;
+    font-size: 80px;
+    margin: 40px 0;
+    color: #ECF0F1;
     }
-
+  }
+  .login{
+      display: flex;
+      flex-direction: row;
+      .login_form {
+        width: 40%;
+        border: 2px solid #CCCCCC;
+        border-radius: 5px;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        margin-top: 20px;
+        padding: 20px 20px;
+        background-color: $background;
+        opacity: 0.80;
+          .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+          }
+      }
+      .login_about {
+        width: 50%;
+        border: 2px solid lighten($main_color, 10%);
+        border-radius: 5px;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        margin-top: 20px;
+        padding: 20px 20px;
+        background-color: $main_color;
+        opacity: 0.85;
+        .login_bullet {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          h3 {
+            font-size: 20px;
+          }
+        }
+      }
+  }
 }
