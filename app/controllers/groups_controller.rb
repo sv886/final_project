@@ -12,7 +12,6 @@ class GroupsController < ApplicationController
   def graphs
     @groups = @current_user.groups
     @members = @current_user.members
-    @max_age = @members.map { |m| m.age }.max
   end
 
   def show

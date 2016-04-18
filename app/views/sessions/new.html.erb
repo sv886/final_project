@@ -1,24 +1,37 @@
 
 <div class="container">
 
-  <div class="login_form">
-    <h1>Welcome to Total Body Data</h1>
-    <h2>Please login below</h2>
-
-    <%= simple_form_for :sessions, :url => login_path, :html => { :class => 'form-vertical' } do |f| %>
-      <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
-      <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password' %>
-      <div class="buttons">
-        <%= f.submit "Sign in", class: "btn btn-lg btn-primary" %>
-        <%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-default" %>
-      </div>
-    <% end %>
+  <div class="login_title">
+    <h1>TOTAL BODY DATA</h1>
   </div>
 
-  <div class="login_about">
-    <h2>About Total Body Data</h2>
-    <h2>Features description</h2>
-    <h2>Navigation Tutorial</h2>
+  <div class="login">
+    <div class="login_form">
+      <h2>Please login below</h2>
+      <%= simple_form_for :sessions, :url => login_path, :html => { :class => 'form-vertical' } do |f| %>
+        <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
+        <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password' %>
+        <div class="buttons">
+          <%= f.submit "Sign in", class: "btn btn-lg btn-primary" %>
+          <%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-default" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="login_about">
+      <ul>
+        <div class="login_bullet">
+          <i class="glyphicon glyphicon-list-alt gi-4x"></i><h3>Quick access to gym member profiles</h3>
+        </div>
+        <div class="login_bullet">
+          <i class="glyphicon glyphicon-stats gi-4x"></i><h3>Graphs give life to your gym's data</h3>
+        </div>
+        <div class="login_bullet">
+          <i class="glyphicon glyphicon-plus gi-4x"></i><h3>Add new measurements anytime, anywhere</h3>
+        </div>
+      </ul>
+    </div>
   </div>
+
 
 </div>
