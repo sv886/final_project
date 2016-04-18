@@ -1,0 +1,13 @@
+<%= render "layouts/header" %>
+
+<div class="container">
+  <div class="group_graphs">
+    <h1><%= @current_user.gym_name %></h1>
+
+    <%= pie_chart @members.group(:gender).count %>
+
+    <%= column_chart @members.group(:age).count, discrete: true, xtitle: "Age", ytitle: "Members of Certain Age", :colors => ["#27AE60"] %>
+
+
+  </div>
+</div>

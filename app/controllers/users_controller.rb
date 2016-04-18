@@ -9,15 +9,15 @@ class UsersController < ApplicationController
     @current_user = User.find_by id: params[:id]
     @groups = @current_user.groups
     @members = @current_user.members
-    # @male = []
-    # @female = []
-    # @genders = @members.map { |member|
-    #   if member.gender == "Male"
-    #     @male.push(member)
-    #   else
-    #     @female.push(member)
-    #   end
-    # }
+    @male = []
+    @female = []
+    @genders = @members.map { |member|
+      if member.gender == "Male"
+        @male.push(member)
+      else
+        @female.push(member)
+      end
+    }
 
   end
 
