@@ -2,8 +2,12 @@
 
 <div class="container">
   <div class="user_show">
-    <div class="gym_name">
+    <div class="gym_header">
       <h1><%= @current_user.gym_name %></h1>
+      <div class="buttons">
+        <%= link_to "Add Class", new_group_path, class: "btn btn-success" %>
+        <%= link_to "Logout", logout_path, class: "btn btn-danger" %>
+      </div>
     </div>
     <hr>
     <div class="classes">
@@ -35,9 +39,5 @@
         :colors => ["#16A085"]
     %>
 
-    <div class="buttons">
-      <%= link_to "Add Class", new_group_path, class: "btn btn-success" %>
-      <%= link_to "Logout", logout_path, class: "btn btn-danger" %>
-    </div>
   </div>
 </div>

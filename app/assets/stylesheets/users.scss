@@ -5,6 +5,7 @@ $accents: #BDC3C7;
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
   .registration_form {
     width: 80%;
     border: 2px solid #CCCCCC;
@@ -28,10 +29,11 @@ $accents: #BDC3C7;
     padding: 20px 20px;
     background-color: $background;
     opacity: 0.85;
-      .buttons {
+      .gym_header {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        align-items: baseline;
+        justify-content: space-between;
       }
     }
     .user_form {
