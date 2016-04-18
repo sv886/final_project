@@ -22,7 +22,7 @@ $accents: #BDC3C7;
       display: flex;
       flex-direction: row;
       .login_form {
-        width: 40%;
+        width: 45%;
         border: 2px solid #CCCCCC;
         border-radius: 5px;
         margin: 0 auto;
@@ -39,9 +39,10 @@ $accents: #BDC3C7;
             flex-direction: row;
             justify-content: space-around;
           }
+        }
       }
       .login_about {
-        width: 50%;
+        width: 45%;
         border: 2px solid lighten($main_color, 10%);
         border-radius: 5px;
         margin: 0 auto;
@@ -63,5 +64,16 @@ $accents: #BDC3C7;
           }
         }
       }
+      .login_footer {
+        padding: 25px 0;
+        margin: 0 auto;
+        i {
+          color: #333332;
+          border-radius: 5px;
+          border: 2px solid lighten($main_color, 10%);
+          background-color: $main_color;
+          padding: 0 5px;
+          opacity: 0.85;
+        }
+      }
   }
-}
