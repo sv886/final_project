@@ -8,9 +8,9 @@ class MembersController < ApplicationController
   def index
     @user = @current_user
     @members = @user.members
+
     @active = []
     @inactive = []
-
     @status = @members.order("member_last_name ASC").map do |member|
       if member.status == "Active"
         @active.push(member)
@@ -30,15 +30,15 @@ class MembersController < ApplicationController
     @user = @current_user
     @member = Member.find_by id: params[:id]
     @group = @member.group
-    @measurements = @member.measurements
+    @measurements = @member.measurements.order("created_at ASC")
 
-    @weight_diff = @measurements.order("updated_at ASC").map { |m| m.weight }
+    @weight_diff = @measurements.order("created_at ASC").map { |m| m.weight }
     @weight_diff = @weight_diff.last - @weight_diff.first
 
-    @bf_diff = @measurements.order("updated_at ASC").map { |m| m.body_fat_percentage }
+    @bf_diff = @measurements.order("created_at ASC").map { |m| m.body_fat_percentage }
     @bf_diff = @bf_diff.last - @bf_diff.first
 
-    @waist_diff = @measurements.order("updated_at ASC").map { |m| m.waist_circ }
+    @waist_diff = @measurements.order("created_at ASC").map { |m| m.waist_circ }
     @waist_diff = @waist_diff.last - @waist_diff.first
 
   end

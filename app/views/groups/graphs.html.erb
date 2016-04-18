@@ -2,11 +2,16 @@
 
 <div class="container">
   <div class="group_graphs">
+
     <h1><%= @current_user.gym_name %></h1>
 
-    <%= pie_chart @members.group(:gender).count %>
+    <h1>Active Membership Data</h1>
 
-    <%= column_chart @members.group(:age).count, discrete: true, xtitle: "Age", ytitle: "Members of Certain Age", :colors => ["#27AE60"] %>
+    <h3>Gender Breakdown:</h3>
+    <%= pie_chart @members.where(:status => "Active").group(:gender).count %>
+
+    <h3>Age Breakdown:</h3>
+    <%= column_chart @members.where(:status => "Active").group(:age).count, discrete: true, xtitle: "Age", ytitle: "Members of Certain Age", :colors => ["#27AE60"] %>
 
 
   </div>
