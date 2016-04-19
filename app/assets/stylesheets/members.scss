@@ -21,20 +21,31 @@ $accents: #BDC3C7;
     width: 90%;
     border: 2px solid #CCCCCC;
     border-radius: 10px;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     margin: 20px 0;
     padding: 20px 20px;
     background-color: $background;
     opacity: 0.85;
+    .member_header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      h1 {
+        font-size: 40px;
+      }
+    }
+    .name h2 {
+        font-size: 35px;
+        margin-right: 15px;
+      }
     .member_show_header {
       display: flex;
       flex-direction: row;
-      justify-content: center;
       align-items: center;
       .member_header_left {
-
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
         .slide {
           height: 270px;
           width: 250px;
@@ -42,20 +53,39 @@ $accents: #BDC3C7;
             display: none;
             position:absolute;
             font-size: 20px;
+            img {
+              border-radius: 10px;
+              border:  3px solid #CCCCCC;
+            }
           }
         }
       }
       .member_header_right {
         flex-direction: column;
         align-content: center;
+        .member_details_right h4 {
+          font-size: 25px;
+        }
+      }
+    }
+    .member_graph {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      h1 {
+        margin-right: 10px;
       }
     }
     .member_measurements {
       display: flex;
       flex-direction: row;
+      border: 3px solid #CCCCCC;
+      border-radius: 10px;
       .member_measurement_image {
-        border-radius: 4px;
-        border: 1px solid #CCCCCC;
+        border-right:  3px solid #CCCCCC;
+          img {
+          border-radius: 10px 0 0 10px;
+        }
       }
       .member_measurement_details {
         flex-direction: column;
