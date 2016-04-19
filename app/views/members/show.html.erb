@@ -2,24 +2,18 @@
 
 <div class="container">
     <div class="member">
-      <h1><%= @current_user.gym_name %></h1>
-      <h1><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></h1>
+      <div class="member_header">
+        <h1><%= @current_user.gym_name %></h1>
+        <div><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></div>
+      </div>
       <hr>
+      <div class="name">
+        <h2> <%= @member.member_full_name %></h2>
+      </div>
+
+
       <div class="member_show_header">
         <div class="member_header_left">
-          <div class="member_details">
-            <h1> <%= @member.member_full_name %></h1>
-            <div>
-              <%= link_to edit_member_path(id: @member.id), class: "button" do %>
-                <i class="glyphicon glyphicon-edit gi-2x"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= link_to member_graphs_path(id: @member.id), class: "button" do %>
-                <i class="glyphicon glyphicon-stats gi-2x"></i>
-              <% end %>
-            </div>
-          </div>
           <div class="slide">
             <% if @member.measurements.length > 1 %>
               <% @member.measurements.order(created_at: :asc).each_with_index do |measurement, i| %>
@@ -41,9 +35,11 @@
             <% end %>
           </div>
         </div>
-        <hr>
         <div class="member_header_right">
-          <div class="member_details">
+          <div class="member_details_right">
+            <div><%= link_to edit_member_path(id: @member.id), class: "button" do %>
+              <i class="glyphicon glyphicon-edit gi-3x"></i>
+            <% end %></div>
             <h4>Age: <%= @member.age %></h4>
             <h4>Gender: <%= @member.gender %></h4>
             <% if @member.height_inches? %>
@@ -55,13 +51,20 @@
             <h4>Notes: <%= @member.notes %></h4>
             <br>
           </div>
-          <div class="buttons">
-            <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
-          </div>
         </div>
       </div>
-        <hr>
-        <h1> <%= @member.member_first_name %>'s Measurements: </h1>
+      <hr>
+
+      <div class="buttons">
+        <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
+      </div>
+
+        <div class="member_graph">
+          <h1> <%= @member.member_first_name %>'s Measurements </h1>
+          <div><%= link_to member_graphs_path(id: @member.id), class: "button" do %>
+            <i class="glyphicon glyphicon-stats gi-4x"></i>
+          <% end %></div>
+        </div>
         <% @member.measurements.order(created_at: :desc).each do |measurement| %>
         <hr>
         <div class="member_measurements">
