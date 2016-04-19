@@ -40,19 +40,44 @@ $accents: #BDC3C7;
     padding: 20px 20px;
     background-color: $background;
     opacity: 0.85;
-      h1 {
-        font-size: 30px;
+    .class_details {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .class_time {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        h2 {
+          margin-right: 15px;
+        }
       }
+      .add_member {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+    .member_detail {
+      display: flex;
+      flex-direction: row;
+      border: 3px solid #CCCCCC;
+      border-radius: 10px;
+      .member_thumb {
+        border-right:  3px solid #CCCCCC;
+        margin-right: 10px;
+          img {
+          border-radius: 10px 0 0 10px;
+        }
+      }
+    }
       h2 {
         font-size: 25px;
       }
       h3 {
         font-size: 15px;
-      }
-      .buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
       }
   }
 }

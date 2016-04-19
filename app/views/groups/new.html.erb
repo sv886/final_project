@@ -1,7 +1,8 @@
-<h1>Add Class</h1>
+<%= render "layouts/header" %>
 <div class="container">
 
   <div class="group_form">
+    <h1>Add Class</h1>
     <%= simple_form_for @group do |f| %>
       <%= f.input :class_time, :required =>false, :label => 'Class Time', :placeholder => 'ex. "5:30 P.M."'  %>
       <%= f.input :coach_first_name, :required =>false, :label => 'Coach First Name', :placeholder => 'First Name of Coach'  %>

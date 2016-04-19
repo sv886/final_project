@@ -4,12 +4,13 @@
   <div class="user_show">
     <div class="gym_header">
       <h1><%= @current_user.gym_name %></h1>
-      <div class="buttons">
-        <%= link_to "Add Class", new_group_path, class: "btn btn-success" %>
-        <%= link_to "Logout", logout_path, class: "btn btn-danger" %>
-      </div>
+      <div><%= link_to "Logout", logout_path, class: "btn btn-danger" %></div>
     </div>
     <hr>
+    <div class="buttons">
+      <h2>Current Schedule </h2>
+      <div><%= link_to "Add Class", new_group_path, class: "btn btn-success" %></div>
+    </div>
     <div class="classes">
       <table class="table table-striped table-sm table-bordered table-hover">
         <thead>

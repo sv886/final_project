@@ -32,8 +32,18 @@ $accents: #BDC3C7;
       .gym_header {
         display: flex;
         flex-direction: row;
-        align-items: baseline;
         justify-content: space-between;
+        align-items: center;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        align-items: center;
+        justify-content: space-between;
+        h2 {
+          font-size: 25px;
+        }
       }
     }
     .user_form {
