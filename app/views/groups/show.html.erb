@@ -5,27 +5,39 @@
     <div class="group">
       <h1><%= @current_user.gym_name %></h1>
       <hr>
-      <h1>Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h1>
-      <h2><%= @group.class_time %> Class</h2>
+      <h2>Coach <%= @group.coach_first_name%> <%= @group.coach_last_name%></h2>
+      <div class="class_details">
+        <div class="class_time">
+          <h2><%= @group.class_time %> Class</h2>
+          <div><%= link_to "Edit Class", edit_group_path(id: @group.id), class: "btn btn-warning" %></div>
+        </div>
+        <div class="add_member">
+          <div><%= link_to "Add Member", new_member_path, class: "btn btn-success" %></div>
+        </div>
+      </div>
       <hr>
       <div class="classes">
         <% @active_members.each do |member| %>
           <div class="members">
-              <h4><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %></h4>
             <% if member.current_results.nil? %>
+              <h4><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %></h4>
               <h4>No measurements logged for <%= member.member_first_name %></h4>
             <% else %>
-              <%= image_tag attachment_url(member.current_results, :photo, :fill, 100, 100, format: "jpg")%>
-              <h1> Current Weight: <%= member.current_weight %> lbs.</h1>
+            <div class="member_detail">
+              <div class="member_thumb">
+                <%= link_to member_path(member) do %>
+                  <%= image_tag attachment_url(member.current_results, :photo, :fill, 120, 120, format: "jpg")%>
+                <% end %>
+              </div>
+              <div class="member_link">
+                <h2><%= link_to "#{member.member_first_name} #{member.member_last_name}", member_path(id: member.id) %></h2>
+                <h2> Current Weight: <%= member.current_weight %> lbs.</h2>
+              </div>
+            </div>
             <% end %>
           </div>
           <hr>
         <% end %>
-      </div>
-
-      <div class="buttons">
-        <%= link_to "Add Member", new_member_path, class: "btn btn-success" %>
-        <%= link_to "Edit Class", edit_group_path(id: @group.id), class: "btn btn-warning" %>
       </div>
     </div>
 
