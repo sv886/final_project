@@ -1,14 +1,35 @@
-<%= render "layouts/header" %>
-
 <div class="container">
-  <div class="registration_form">
-    <%= simple_form_for @user do |f| %>
-      <%= f.input :gym_name, :required =>false, :label => 'Box Name', :placeholder => 'Box Name'  %>
-      <%= f.input :address, :required =>false, :label => '', :placeholder => 'Box Address'  %>
-      <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
-      <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password'  %>
-      <%= f.input :password_confirmation, :required =>false, :label => '', :placeholder => 'Password Confirmation'  %>
-      <%= f.submit "Register", class: "btn btn-lg btn-primary" %>
+  <div class="registration_title">
+    <h1>TOTAL BODY DATA</h1>
+  </div>
+  <div class="registration">
+    <div class="registration_form">
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :gym_name, :required =>false, :label => 'Box Name', :placeholder => 'Box Name'  %>
+        <%= f.input :address, :required =>false, :label => '', :placeholder => 'Box Address'  %>
+        <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
+        <%= f.input :password, :required =>false, :label => '', :placeholder => 'Password'  %>
+        <%= f.input :password_confirmation, :required =>false, :label => '', :placeholder => 'Password Confirmation'  %>
+        <%= f.submit "Register", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+    <div class="registration_about">
+      <ul>
+        <div class="registration_bullet">
+          <i class="glyphicon glyphicon-list-alt gi-4x"></i><h3>Quick access to gym member profiles</h3>
+        </div>
+        <div class="registration_bullet">
+          <i class="glyphicon glyphicon-stats gi-4x"></i><h3>Graphs give life to your gym's data</h3>
+        </div>
+        <div class="registration_bullet">
+          <i class="glyphicon glyphicon-plus gi-4x"></i><h3>Add new measurements anytime, anywhere</h3>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="registration_footer">
+    <%= link_to "https://github.com/sv886", class: "button" do %>
+      <i class="fa fa-github-square fa-4x"></i>
     <% end %>
   </div>
 </div>
