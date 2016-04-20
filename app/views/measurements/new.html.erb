@@ -3,6 +3,7 @@
 <div class="container">
     <div class="measurement_form">
       <h1>Add Measurements for <%= @member.member_first_name %></h1>
+      <hr>
       <%= simple_form_for @measurement, url: member_measurements_path, :method => :post do |f| %>
         <%= f.input :photo, as: :file, :required =>false, :label => 'Member Photo'  %>
           <div class="row">

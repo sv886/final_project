@@ -4,7 +4,10 @@
     <div class="member">
       <div class="member_header">
         <h1><%= @current_user.gym_name %></h1>
-        <div><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></div>
+        <% if @member.status == "Active" %>
+          <div><%= link_to "#{@member.group.coach_full_name}'s Class", group_path(id: @group.id), class: "btn btn-success" %></div>
+        <% else %>
+        <% end %>
       </div>
       <hr>
       <div class="name">
@@ -26,28 +29,41 @@
                   </div>
                 </div>
               <% end %>
-            <% else %>
+            <% elsif @member.measurements.length == 1 %>
               <% @member.measurements.each do |measurement| %>
-                <div class="fade_pic">
+                <div class="fade_date">
+                   Taken <%= distance_of_time_in_words measurement.created_at, Time.now %> ago
+                </div>
+                <div class="fade_pic_one">
                   <%= image_tag attachment_url(measurement, :photo, :fill, 250, 250, format: "jpg")%>
                 </div>
               <% end %>
+            <% else %>
+            <div class="fade_pic">
+              <h4><strong>Upload Photo with Measurements<strong></h4>
+            </div>
             <% end %>
           </div>
         </div>
         <div class="member_header_right">
           <div class="member_details_right">
-            <div><%= link_to edit_member_path(id: @member.id), class: "button" do %>
-              <i class="glyphicon glyphicon-edit gi-3x"></i>
-            <% end %></div>
+            <div>
+              <%= link_to edit_member_path(id: @member.id), class: "button" do %>
+                <i class="glyphicon glyphicon-edit gi-3x"></i>
+              <% end %>
+            </div>
             <h4>Age: <%= @member.age %></h4>
             <h4>Gender: <%= @member.gender %></h4>
             <% if @member.height_inches? %>
               <h4>Height: <%= "#{@member.height_inches/12}' #{@member.height_inches%12}\"" %></h4>
-              <% else %>
+            <% else %>
               <h4>Height: not entered</h4>
             <% end %>
-            <h4>Membership: <%= @member.status %></h4>
+            <% if @member.status == "Active" %>
+              <h4>Membership: <%= @member.status %></h4>
+            <% else %>
+              <h4>Membership: <%= @member.status %></h4>
+            <% end %>
             <h4>Notes: <%= @member.notes %></h4>
             <br>
           </div>
@@ -55,15 +71,20 @@
       </div>
       <hr>
 
+
       <div class="buttons">
         <%= link_to "Add Measurements", new_member_measurement_path(member_id: @member.id), class: "btn btn-default" %>
       </div>
 
+      <% if @member.measurements.count > 0 %>
         <div class="member_graph">
           <h1> <%= @member.member_first_name %>'s Measurements </h1>
-          <div><%= link_to member_graphs_path(id: @member.id), class: "button" do %>
-            <i class="glyphicon glyphicon-stats gi-4x"></i>
-          <% end %></div>
+          <div> </div>
+          <div>
+            <%= link_to member_graphs_path(id: @member.id), class: "button" do %>
+              <i class="glyphicon glyphicon-stats gi-4x"></i>
+            <% end %>
+          </div>
         </div>
         <% @member.measurements.order(created_at: :desc).each do |measurement| %>
         <hr>
@@ -80,5 +101,8 @@
           </div>
         </div>
         <% end %>
+    <% else %>
+        <h1>No Measurements Logged for <%= @member.member_first_name %></h1>
+    <% end %>
     </div>
 </div>
