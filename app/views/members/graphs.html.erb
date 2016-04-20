@@ -5,7 +5,7 @@
     <h1><%= @current_user.gym_name %></h1>
     <hr>
     <h1> <%= link_to "#{@member.member_first_name}'s", member_path %> Graphs</h1>
-
+    <hr>
     <% if @measurements.length > 0 %>
 
     <% if @weight_diff.positive? %>
@@ -15,7 +15,7 @@
       <h4>Weight</h4>
       <h4><%= @weight_diff %> lbs since first measurement</h4>
     <% end %>
-      <%= line_chart @measurements.pluck(:created_at, :weight), discrete: true, min: 90, xtitle: "Date of Measurement", ytitle: "Weight (lbs)", :colors => ["#27AE60"] %>
+      <%= line_chart @measurements.pluck(:created_at, :weight), discrete: true, min: 90, xtitle: "Date of Measurement", ytitle: "Weight (lbs)", :colors => ["#27AE60"], library: {backgroundColor: "#ECF0F1"} %>
       <br>
 
     <% if @bf_diff.positive? %>
@@ -25,7 +25,7 @@
       <h4>Body Fat Percentage</h4>
       <h4><%= @bf_diff %>% since first measurement</h4>
     <% end %>
-      <%= line_chart @measurements.pluck(:created_at, :body_fat_percentage), discrete: true, xtitle: "Date of Measurement", ytitle: "Body Fat %", :colors => ["#E74C3C"] %>
+      <%= line_chart @measurements.pluck(:created_at, :body_fat_percentage), discrete: true, xtitle: "Date of Measurement", ytitle: "Body Fat %", :colors => ["#E74C3C"], library: {backgroundColor: "#ECF0F1"} %>
       <br>
 
     <% if @waist_diff.positive? %>
@@ -35,7 +35,7 @@
       <h4>Waist</h4>
       <h4><%= @waist_diff %> inches since first measurement</h4>
     <% end %>
-      <%= line_chart @measurements.pluck(:created_at, :waist_circ), discrete: true, xtitle: "Date of Measurement", ytitle: "Waist Circumference (in.)", :colors => ["#2980B9"] %>
+      <%= line_chart @measurements.pluck(:created_at, :waist_circ), discrete: true, min: 10, xtitle: "Date of Measurement", ytitle: "Waist Circumference (in.)", :colors => ["#2980B9"], library: {backgroundColor: "#ECF0F1"} %>
       <br>
 
     <% else %>

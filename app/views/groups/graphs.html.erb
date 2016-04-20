@@ -7,12 +7,23 @@
     <hr>
     <h1>Active Membership Data</h1>
 
-    <h3>Gender Breakdown:</h3>
-    <%= pie_chart @members.where(:status => "Active").group(:gender).count %>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Gender Breakdown:</h3>
+        <%= pie_chart @members.where(:status => "Active").group(:gender).count, colors: ["#9B59B6", "#3498DB"], library: {backgroundColor: "#ECF0F1"} %>
+      </div>
+      <div class="col-md-6">
+        <h3>Membership Breakdown:</h3>
+        <%= pie_chart @members.group(:status).count, colors: ["#2ECC71", "#E74C3C"], library: {backgroundColor: "#ECF0F1"} %>
+      </div>
+    </div>
 
-    <h3>Age Breakdown:</h3>
-    <%= column_chart @members.where(:status => "Active").group(:age).count, discrete: true, xtitle: "Age", ytitle: "Members of Certain Age", :colors => ["#27AE60"] %>
-
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Age Breakdown:</h3>
+        <%= column_chart @members.where(:status => "Active").group(:age).count, discrete: true, xtitle: "Age", ytitle: "Members of Certain Age", :colors => ["#34495E"], library: {backgroundColor: "#ECF0F1"} %>
+      </div>
+    </div>
 
   </div>
 </div>
