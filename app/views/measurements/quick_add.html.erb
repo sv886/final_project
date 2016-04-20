@@ -2,7 +2,10 @@
 
 <div class="container">
     <div class="measurement_form">
-      <h1>Quick Add Measurements</h1>
+      <div class="measurement_options">
+        <h1>Quick Add Measurements</h1>
+        <h2><%= link_to "Add Member", new_member_path, class: "btn btn-success" %></h2>
+      </div>
       <hr>
       <%= simple_form_for @measurement, url: measurements_path, :method => :post do |f| %>
         <%= f.association :member, collection: @current_user.members, :required =>false, :label => 'Member Name', label_method: :member_full_name, value_method: :id, include_blank: true, input_html: { class: 'chosen-select' } %>
