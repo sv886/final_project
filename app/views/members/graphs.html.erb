@@ -15,7 +15,7 @@
       <h4>Weight</h4>
       <h4><%= @weight_diff %> lbs since first measurement</h4>
     <% end %>
-      <%= line_chart @measurements.pluck(:created_at, :weight), discrete: true, xtitle: "Date of Measurement", ytitle: "Weight (lbs)", :colors => ["#27AE60"] %>
+      <%= line_chart @measurements.pluck(:created_at, :weight), discrete: true, min: 90, xtitle: "Date of Measurement", ytitle: "Weight (lbs)", :colors => ["#27AE60"] %>
       <br>
 
     <% if @bf_diff.positive? %>
