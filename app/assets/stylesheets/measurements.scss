@@ -5,6 +5,15 @@ $accents: #BDC3C7;
 .container {
   display: flex;
   justify-content: center;
+  .measurement_options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-size: 25px;
+    }
+  }
   .measurement_form {
     width: 90%;
     border: 2px solid #CCCCCC;
