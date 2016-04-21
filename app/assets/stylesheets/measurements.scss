@@ -41,6 +41,10 @@ $accents: #BDC3C7;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      .measurement_image_show img {
+        border-radius: 10px;
+        border:  3px solid #CCCCCC;
+      }
       .measurement_header_text{
         flex-direction: column;
       }
