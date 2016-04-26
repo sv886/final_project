@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   has_many :members, through: :groups
 
   validates :gym_name, :email, :address, presence: true
+  attachment :photo
 
 end

@@ -5,6 +5,7 @@
   <div class="registration">
     <div class="registration_form">
       <%= simple_form_for @user do |f| %>
+        <%= f.input :photo, as: :file, :required =>false, :label => 'Gym Logo'  %>
         <%= f.input :gym_name, :required =>false, :label => 'Box Name', :placeholder => 'Box Name'  %>
         <%= f.input :address, :required =>false, :label => '', :placeholder => 'Box Address'  %>
         <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com' %>
