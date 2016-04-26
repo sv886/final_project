@@ -4,6 +4,7 @@
     <div class="user_form">
       <h1>Edit Gym</h1>
       <%= simple_form_for @user do |f| %>
+        <%= f.input :photo, as: :file, :required =>false, :label => 'Gym Logo'  %>
         <%= f.input :gym_name, :required =>false, :label => 'Gym Name', :placeholder => 'ex. CFSB or Crossfit Southbell'  %>
         <%= f.input :address, :required =>false, :label => '', :placeholder => '12345 WOD Lane, Houston, TX'  %>
         <%= f.input :email, :required =>false, :label => '', :placeholder => 'example@domain.com'  %>
