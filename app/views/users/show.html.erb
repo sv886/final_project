@@ -3,7 +3,14 @@
 <div class="container">
       <div class="user_show">
         <div class="gym_header">
-          <h1><%= @current_user.gym_name %></h1>
+          <div class="gym_name">
+            <h1><%= @current_user.gym_name %></h1>
+            <div>
+              <%= link_to edit_user_path(id: @current_user.id), class: "button" do %>
+                <i class="glyphicon glyphicon-edit gi-2x"></i>
+              <% end %>
+            </div>
+          </div>
           <div><%= link_to "Logout", logout_path, class: "btn btn-danger" %></div>
         </div>
         <hr>

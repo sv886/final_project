@@ -89,6 +89,14 @@ $accents: #BDC3C7;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        .gym_name {
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          i {
+            margin-left: 10px;
+          }
+        }
       }
       .buttons {
         display: flex;
